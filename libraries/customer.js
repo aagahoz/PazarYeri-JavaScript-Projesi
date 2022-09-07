@@ -26,8 +26,8 @@ class Customer {
     }
 }
 
-function getCustomerOrdersDetails(customerID, orders, products)
-{
+// *** Girilen Müşteri ID sine göre müşterinin yaptığı siparişler ve siparişlerin detaylarının ekrana basılması *** //
+function getCustomerOrdersDetails(customerID, orders, products) {
     let customerOrders = orders.filter(order => order.customerID === customerID);
 
     console.log("Orders:");
@@ -49,4 +49,24 @@ function getCustomerOrdersDetails(customerID, orders, products)
     });
 }
 
-module.exports = { Customer, getCustomerOrdersDetails };
+// *** Tüm müşterilerin ekrana basılması *** //
+function getAllCustomers(customers) {
+    console.log("Customers:");
+    customers.forEach(customer => {
+        console.log("Customer ID: " + customer.ID);
+        console.log("Customer Name: " + customer.name);
+        console.log("Customer Address: " + customer.address);
+        console.log("Customer Email: " + customer.email);
+        console.log("Customer Phone: " + customer.phone);
+        console.log();
+    });
+}
+
+// *** Bir müşterinin siparişlerinin ekrana basılması *** //
+function getCustomerOrders(customerID, orders) {
+    let customerOrders = orders.filter(order => order.customerID == customerID);
+    console.log("Orders:");
+    console.log(customerOrders);
+}
+
+module.exports = { Customer, getCustomerOrdersDetails, getAllCustomers, getCustomerOrders };
