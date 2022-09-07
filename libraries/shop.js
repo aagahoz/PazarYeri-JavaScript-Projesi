@@ -5,9 +5,7 @@ function* shopIDGeneratorFunction() {
         yield id++;
     }
 }
-
 const shopIDGenerator = shopIDGeneratorFunction();
-
 
 class Shop {
     constructor(name, address, email, phone, orders) {
@@ -29,3 +27,5 @@ class Shop {
         };
     }
 }
+
+module.exports = { Shop };

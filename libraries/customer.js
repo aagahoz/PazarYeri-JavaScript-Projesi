@@ -5,7 +5,6 @@ function* customerIDGeneratorFunction() {
         yield id++;
     }
 }
-
 const customerIDGenerator = customerIDGeneratorFunction();
 
 class Customer {
@@ -26,3 +25,5 @@ class Customer {
         };
     }
 }
+
+module.exports = { Customer };

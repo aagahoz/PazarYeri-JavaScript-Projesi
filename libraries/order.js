@@ -5,7 +5,6 @@ function* orderIDGeneratorFunction() {
         yield id++;
     }
 }
-
 const orderIDGenerator = orderIDGeneratorFunction();
 
 class Order {
@@ -29,5 +28,6 @@ class Order {
             products: this.products,
         };
     }
-
 }
+
+module.exports = { Order };
