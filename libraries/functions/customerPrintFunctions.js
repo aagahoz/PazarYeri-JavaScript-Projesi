@@ -1,30 +1,3 @@
-const userLib = require('./user.js');   // import user class
-
-function* customerIDGeneratorFunction() {   // customer ID generator function
-    let id = 1;
-    while (true)
-    {
-        yield id++;
-    }
-}
-const customerIDGenerator = customerIDGeneratorFunction();  // customer ID generator
-
-class Customer extends userLib.User {
-    constructor(name, address, email, phoneNumber) {
-        super(name, address, email, phoneNumber);
-        this.ID = customerIDGenerator.next().value;
-    }
-    getDetails() {
-        return {
-            ID: this.ID,
-            name: this.name,
-            address: this.address,
-            email: this.email,
-            phone: this.phoneNumber,
-        };
-    }
-}
-
 // *** Girilen Müşteri ID sine göre müşterinin yaptığı siparişler ve siparişlerin detaylarının ekrana basılması *** //
 function getCustomerOrdersDetails(customerID, orders, products) {
     let customerOrders = orders.filter(order => order.customerID === customerID);
@@ -35,7 +8,6 @@ function getCustomerOrdersDetails(customerID, orders, products) {
         console.log("Order Status: " + order.status);
         console.log("Order Total: " + order.total);
         console.log("Order Date: " + order.date);
-        console.log("Order Products ");
         console.log("");
         order.products.forEach(productID => {
             let product = products.find(product => product.ID === productID);
@@ -68,4 +40,4 @@ function getCustomerOrders(customerID, orders) {
     console.log(customerOrders);
 }
 
-module.exports = { Customer, getCustomerOrdersDetails, getAllCustomers, getCustomerOrders };    // Exporting the class and functions
+module.exports = { getCustomerOrdersDetails, getAllCustomers, getCustomerOrders };    // Exporting the class and functions

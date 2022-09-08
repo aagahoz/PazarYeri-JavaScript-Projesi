@@ -1,4 +1,4 @@
-const functionsLib = require('./functions.js');  // import functions class
+const functionsLib = require('../functions/subFunctions');  // import functions class
 
 class User {
     constructor(name, address, email, phoneNumber) {
@@ -28,7 +28,7 @@ class User {
         if (functionsLib.validateEmail(email))   // check if the email is valid
         {
             this.email = email;
-        }  
+        }
         else
         {
             this.email = undefined;
@@ -44,7 +44,6 @@ class User {
             email: this.email,
         };
     }
-
 }
 
 module.exports = { User };  // export User class

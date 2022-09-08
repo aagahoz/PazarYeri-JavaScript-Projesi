@@ -1,31 +1,3 @@
-const userLib = require('./user.js');   // import user class
-
-function* shopIDGeneratorFunction() {   // shop ID generator function
-    let id = 1;
-    while (true)
-    {
-        yield id++;
-    }
-}
-const shopIDGenerator = shopIDGeneratorFunction();  // shop ID generator
-
-class Shop extends userLib.User {
-    constructor(name, address, email, phoneNumber, orders) {
-        super(name, address, email, phoneNumber);
-        this.ID = shopIDGenerator.next().value;
-    }
-    getDetails() {
-        return {
-            ID: this.ID,
-            name: this.name,
-            address: this.address,
-            phone: this.phoneNumber,
-            email: this.email,
-            orders: this.orders,
-        };
-    }
-}
-
 // *** Tüm mağazaların ekrana basılması *** //
 function getAllShops(shops) {
     console.log("Shops:");
@@ -71,4 +43,4 @@ function getShopTotalIncome(shopID, orders) {
     console.log("ID > " + shopID + " Total Income: " + totalIncome);
 }
 
-module.exports = { Shop, getAllShops, getShopCustomers, getShopOrders, getShopTotalIncome };    // Exporting the class and functions
+module.exports = { getAllShops, getShopCustomers, getShopOrders, getShopTotalIncome };    // Exporting the class and functions
