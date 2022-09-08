@@ -68,4 +68,3 @@ const shops = [shop1, shop2];
 
 // *** Bir mağazanın toplam kazancının ekrana basılması *** //
 // shopLib.getShopTotalIncome(1, orders);
-

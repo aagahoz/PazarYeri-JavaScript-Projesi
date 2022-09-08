@@ -1,3 +1,5 @@
+const userLib = require('./user.js');
+
 function* shopIDGeneratorFunction() {
     let id = 1;
     while (true)
@@ -7,14 +9,10 @@ function* shopIDGeneratorFunction() {
 }
 const shopIDGenerator = shopIDGeneratorFunction();
 
-class Shop {
+class Shop extends userLib.User {
     constructor(name, address, email, phone, orders) {
+        super(name, address, email, phone);
         this.ID = shopIDGenerator.next().value;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-        this.orders = orders;
     }
     getDetails() {
         return {
