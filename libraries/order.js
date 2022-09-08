@@ -1,11 +1,11 @@
-function* orderIDGeneratorFunction() {
+function* orderIDGeneratorFunction() {  //  order ID generator function
     let id = 1;
     while (true)
     {
         yield id++;
     }
 }
-const orderIDGenerator = orderIDGeneratorFunction();
+const orderIDGenerator = orderIDGeneratorFunction();    // order ID generator
 
 class Order {
     constructor(status, total, customerID, shopID, products) {
@@ -56,10 +56,10 @@ function getOrderDetails(orderID, orders, products) {
         let product = products.find(product => product.ID === productID);
         console.log("Product ID: " + product.ID);
         console.log("Product Name: " + product.name);
-        console.log("Product Price: " + product.price);
-        console.log("Product Description: " + product.description);
+        console.log("Product Price: " + product.unitPrice);
+        console.log("Product Description: " + product.productDescription);
         console.log();
     });
 }
 
-module.exports = { Order, getAllOrders, getOrderDetails };
+module.exports = { Order, getAllOrders, getOrderDetails };  // Exporting the class and functions

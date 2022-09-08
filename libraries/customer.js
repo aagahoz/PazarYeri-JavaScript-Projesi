@@ -1,17 +1,17 @@
-const userLib = require('./user.js');
+const userLib = require('./user.js');   // import user class
 
-function* customerIDGeneratorFunction() {
+function* customerIDGeneratorFunction() {   // customer ID generator function
     let id = 1;
     while (true)
     {
         yield id++;
     }
 }
-const customerIDGenerator = customerIDGeneratorFunction();
+const customerIDGenerator = customerIDGeneratorFunction();  // customer ID generator
 
 class Customer extends userLib.User {
-    constructor(name, address, email, phone) {
-        super(name, address, email, phone);
+    constructor(name, address, email, phoneNumber) {
+        super(name, address, email, phoneNumber);
         this.ID = customerIDGenerator.next().value;
     }
     getDetails() {
@@ -41,8 +41,8 @@ function getCustomerOrdersDetails(customerID, orders, products) {
             let product = products.find(product => product.ID === productID);
             console.log("Product ID: " + product.ID);
             console.log("Product Name: " + product.name);
-            console.log("Product Price: " + product.price);
-            console.log("Product Description: " + product.description);
+            console.log("Product Price: " + product.unitPrice);
+            console.log("Product Description: " + product.productDescription);
             console.log();
         });
     });
@@ -68,4 +68,4 @@ function getCustomerOrders(customerID, orders) {
     console.log(customerOrders);
 }
 
-module.exports = { Customer, getCustomerOrdersDetails, getAllCustomers, getCustomerOrders };
+module.exports = { Customer, getCustomerOrdersDetails, getAllCustomers, getCustomerOrders };    // Exporting the class and functions

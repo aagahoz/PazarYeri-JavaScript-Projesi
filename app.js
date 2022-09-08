@@ -6,11 +6,11 @@ const orderLib = require('./libraries/order.js');
 //  *** Yapay VeriTabanı *** //
 
 // *** Müşteri oluşturma *** //
-let customer1 = new customerLib.Customer("Agah 1", "Tuzla", "ozdemiragah24@gmail.com", "1234567890");
-let customer2 = new customerLib.Customer("Agah 2", "Tuzla", "aagahoz@gmail.com", "1234567890");
-let customer3 = new customerLib.Customer("Agah 3", "Gebze", "agah24@gmail.com", "432325543");
-let customer4 = new customerLib.Customer("Agah 4", "Pendik", "ozdemiragah24@gmail.com", "543234234");
-let customer5 = new customerLib.Customer("Agah 5", "Kadıköy", "abdullah@gmail.com", "543234234");
+let customer1 = new customerLib.Customer("Agah", "Tuzla", "ozdemiragah24@gmail.com", "1234567890");
+let customer2 = new customerLib.Customer("Abdullah", "Tuzla", "aagahoz@gmail.com", "1234567890");
+let customer3 = new customerLib.Customer("Alpay", "Gebze", "agah24@gmail.com", "432325543");
+let customer4 = new customerLib.Customer("Tunahan", "Pendik", "ozdemiragah24@gmail.com", "543234234");
+let customer5 = new customerLib.Customer("Fatih", "Kadıköy", "abdullah@gmail.com", "543234234");
 const customers = [customer1, customer2, customer3, customer4, customer5];
 
 // *** Ürün oluşturma *** //
@@ -35,12 +35,12 @@ let order5 = new orderLib.Order("pending", 235, customer5.ID, 1, [product5.ID, p
 const orders = [order1, order2, order3, order4, order5];
 
 // *** Mağaza oluşturma *** //
-let shop1 = new shopLib.Shop("Shop 1", "Tuzla", "tuzlamodern@gmail.com", "1234567890", [order1.ID, order2.ID, order3.ID]);
-let shop2 = new shopLib.Shop("Shop 2", "Gebze", "gebze@gmail.com.", "1234567890", [order4.ID, order5.ID]);
+let shop1 = new shopLib.Shop("Tuzla Shop", "Tuzla", "tuzlamodern@gmail.com", "1234567890", [order1.ID, order2.ID, order3.ID]);
+let shop2 = new shopLib.Shop("Gebze Shop", "Gebze", "gebze@gmail.com.", "1234567890", [order4.ID, order5.ID]);
 const shops = [shop1, shop2];
 
 // *** Girilen Müşteri ID sine göre müşterinin yaptığı siparişler ve siparişlerin detaylarının ekrana basılması *** //
-// customerLib.getCustomerOrdersDetails(2, orders, products);
+customerLib.getCustomerOrdersDetails(2, orders, products);
 
 // *** Tüm müşterilerin ekrana basılması *** //
 // customerLib.getAllCustomers(customers);
@@ -64,7 +64,7 @@ const shops = [shop1, shop2];
 // customerLib.getCustomerOrders(2, orders);
 
 // *** Girilen Sipariş ID sine göre siparişin detaylarının ekrana basılması *** //
-// orderLib.getOrderDetails(1, orders, products);
+orderLib.getOrderDetails(1, orders, products);
 
 // *** Bir mağazanın toplam kazancının ekrana basılması *** //
 // shopLib.getShopTotalIncome(1, orders);
